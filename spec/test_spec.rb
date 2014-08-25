@@ -19,7 +19,7 @@ describe 'testing the rspec syntax' do
 
 		# Test for boolean values
 
-		var_0, var_1, var_2 = (5>4), [false,false].include?(true), def method_name ;end
+		var_0, var_1, var_2 = (5>4), [false,false].include?(true), def method_name ; end
 
 		var_3, var_4, var_5 = 'String', [], 69
 
@@ -108,6 +108,24 @@ describe 'testing the rspec syntax' do
 		
 		# Passes if actual covers expected. This works for Ranges
 
+		expect(1..10).to     cover(5)
+		expect(1..10).to     cover(4, 6)
+		expect(1..10).not_to cover(11)
+	end
 
+
+	it "playing with 'end_with(*expected)' method" do
+		
+		# Used for collections and strings
+
+		expect(['lol','aka']).to end_with(['aka'])
+
+		expect("hello").to       end_with('ello')
+
+		expect([1,2,['lol']]).to end_with([])
+
+		expect([34,true]).to     end_with(true)
+
+		expect([{name: 'Charlie'},{name: 'Albert'}]).to end_with([{name: 'Albert'}])
 	end
 end
