@@ -52,5 +52,12 @@ describe 'testing the rspec syntax' do
 
 	it "playing with 'be_a_kind_of(expected)' method" do
 		
+		# Passes if actual.kind_of?(expected)
+
+		var_0, var_1 = String, 'some String'
+
+		expect('some String').to be_a_kind_of(var_0)
+		expect(var_1).to         be_a_kind_of(String)
+		expect(var_0).not_to     be_a_kind_of(Fixnum)    
 	end
 end
