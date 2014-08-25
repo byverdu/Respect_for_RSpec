@@ -41,8 +41,12 @@ describe 'testing the rspec syntax' do
 		
 		# Test for --> target.kind_of?(Klass)
 
-		
+		class Dog ; end
+
+		var_0, var_1, var_2 = 888, (1 < 2), Dog.new
 
 		expect(var_0).to be_a(Fixnum) 
+		expect(var_1).to be_a(TrueClass)
+		expect(var_2).to be_a(Dog)
 	end
 end
