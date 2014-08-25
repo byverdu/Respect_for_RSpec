@@ -5,13 +5,13 @@ describe 'testing the rspec syntax' do
 
 		# Passes if all elements agrees the expectation
 
-		arr, arr_2 = [1,13,15], ['dragon','dad']
+		var_0, var_1 = [1,13,15], ['dragon','dad']
 
-		expect(arr).to all start_with(1)
-		expect(arr).to all be_odd
+		expect(var_0).to all start_with(1)
+		expect(var_0).to all be_odd
 		
-		expect(arr_2).to all start_with('d')
-		expect(arr_2).to all include('a')
+		expect(var_1).to all start_with('d')
+		expect(var_1).to all include('a')
 	end
 
 
@@ -34,6 +34,15 @@ describe 'testing the rspec syntax' do
 
 		expect(var_5).not_to be nil
 		expect(var_6).not_to be_include('LOL')
+	end
+
+
+	it "playing with 'be_a(Klass)' method" do
 		
+		# Test for --> target.kind_of?(Klass)
+
+		
+
+		expect(var_0).to be_a(Fixnum) 
 	end
 end
