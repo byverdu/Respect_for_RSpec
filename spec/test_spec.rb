@@ -25,9 +25,9 @@ describe 'testing the rspec syntax' do
 
 									var_6 = ['FYI','BTW']
 			
-		expect(var_0).to be true
-		expect(var_1).to be false
-		expect(var_2).to be nil
+		expect(var_0).to be true  #--> be_truthy
+		expect(var_1).to be false #--> be_falsey
+		expect(var_2).to be nil   #--> be_nil
 		
 		expect(var_3).to be_instance_of(String) # be_[arbitrary_predicate](*args)
 		expect(var_4).to be_empty
@@ -59,5 +59,16 @@ describe 'testing the rspec syntax' do
 		expect('some String').to be_a_kind_of(var_0)
 		expect(var_1).to         be_a_kind_of(String)
 		expect(var_0).not_to     be_a_kind_of(Fixnum)    
+	end
+
+	it "playing with 'be_between(min,max)'" do
+		
+		# Works with any Comparable object --> String, Symbol, Time or Numeric
+		# 'Inclusive' min and max by default, if desired append 'exclusive' at the end of the chain
+
+		expect(2.3).to   be_between(1, 55) 
+		expect(11 ).to   be_between(10,12).exclusive
+		expect(9).not_to be_between(10,15)
+
 	end
 end
