@@ -49,4 +49,8 @@ describe 'testing the rspec syntax' do
 		expect(var_1).to be_a(TrueClass)
 		expect(var_2).to be_a(Dog)
 	end
+
+	it "playing with 'be_a_kind_of(expected)' method" do
+		
+	end
 end
