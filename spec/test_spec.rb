@@ -84,6 +84,8 @@ describe 'testing the rspec syntax' do
 	end
 
 
+############################
+
 	xit "playing with 'change(receiver = nil, message = nil, &block)' method" do
 		
 		# Applied to a proc, specifies that its execution will cause some value to change.
@@ -154,12 +156,14 @@ describe 'testing the rspec syntax' do
 
 	end
 
-	#let(:person) { Person.new(name: 'Albert') }
+#############################
 
 	xit "playing with 'have_attributes(expected)'" do
 		
 		# Passes if actual's attribute values match the expected attributes hash
 	end
+
+	
 
 	it "playing with 'include(*expected)' method" do
 		
@@ -187,4 +191,25 @@ describe 'testing the rspec syntax' do
 		expect(var_2).to match(String)
 		expect(var_3).to match(/Z\d/)
 	end
+
+
+	it "playing with 'match_array(items)' method" do
+		
+		#An alternate form of contain_exactly that accepts the expected contents as a single array
+
+		var_0 = ['Albert',true]
+
+		expect(var_0).to match_array([String,TrueClass])
+		expect(var_0).to contain_exactly('Albert',true)
+	end
+
+#############################
+
+	it "playing with 'output(expected = nil)' method" do
+		
+		#expect(print 'Albert').to output('Albert').to_stdout
+	end
+
+
+
 end
