@@ -128,4 +128,32 @@ describe 'testing the rspec syntax' do
 
 		expect([{name: 'Charlie'},{name: 'Albert'}]).to end_with([{name: 'Albert'}])
 	end
+
+	it "playing with 'eq(expected)--eql(expected)--equal(expected)' method" do
+
+		# (eq)    Passes if actual == expected.     -->  At the Object level, == returns true only if obj and other are the same object. 
+		# (eql)   Passes if actual.eql?(expected)   -->  Returns true if obj and other refer to the same hash key.
+		# (equal) Passes if actual.equal?(expected) -->  Should never be overridden by subclasses as it is used to determine object identity 
+		
+		
+
+		var_0, var_1 = 25, 'frog'
+
+		expect(var_0).to eq 25
+		expect(var_0).to eql 25
+		expect(var_0).to equal 25
+
+		expect(var_1).to eq 'frog'
+		#expect(var_1).to equal 'frog' --> Error, no same identity object
+	end
+
+
+	it "playing with 'exist(*args)' method" do
+		
+		# Passes if actual.exist? or actual.exists? --> Only works for file_names
+
+		expect(File).to exist("./spec/test_spec.rb") # --> exist("./spec/test_spec") gives error
+		#expect(File).to exist("./spec/.rspec") # --> Error
+
+	end
 end
