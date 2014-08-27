@@ -1,4 +1,3 @@
-
 describe 'testing the rspec syntax' do
 
 	it "playing with 'all' method" do
@@ -135,8 +134,6 @@ describe 'testing the rspec syntax' do
 		# (eql)   Passes if actual.eql?(expected)   -->  Returns true if obj and other refer to the same hash key.
 		# (equal) Passes if actual.equal?(expected) -->  Should never be overridden by subclasses as it is used to determine object identity 
 		
-		
-
 		var_0, var_1 = 25, 'frog'
 
 		expect(var_0).to eq 25
@@ -155,5 +152,39 @@ describe 'testing the rspec syntax' do
 		expect(File).to exist("./spec/test_spec.rb") # --> exist("./spec/test_spec") gives error
 		#expect(File).to exist("./spec/.rspec") # --> Error
 
+	end
+
+	#let(:person) { Person.new(name: 'Albert') }
+
+	xit "playing with 'have_attributes(expected)'" do
+		
+		# Passes if actual's attribute values match the expected attributes hash
+	end
+
+	it "playing with 'include(*expected)' method" do
+		
+		# Passes if actual includes expected
+
+		var_0, var_1, var_2 = [true,true], ['hello','hell'], [1,2,3,4] 
+
+		expect(var_0).to     include(TrueClass)
+		expect(var_1).to     include('hell')
+		expect(var_2).not_to include(String)
+
+	end
+
+
+	it "playing with 'match(expected)' method" do
+		
+		# Given a Regexp or String, passes if actual.match(pattern) 
+
+		var_0, var_1 = 'mole@gmail.com', [1,2,3,4].to_s
+
+		var_2, var_3 = 'aAllfroSDEFEVzZ', 'Z9'
+
+		expect(var_0).to match('@gmail.com')
+		expect(var_1).to match(/\d/)
+		expect(var_2).to match(String)
+		expect(var_3).to match(/Z\d/)
 	end
 end
