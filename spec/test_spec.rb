@@ -241,10 +241,6 @@ describe 'testing the rspec syntax' do
 
 		end
 
-		#var_0 = [false,false,true] 
-
-		#var_0.each { |item| raise FlowerPowerError.new("There's no space for 'true'" ) unless item === TrueClass }
-
 		expect{ addition('5') }.to  raise_error(RuntimeError)
 
 		expect{ greet()       }.to  raise_error(ArgumentError)
@@ -256,13 +252,48 @@ describe 'testing the rspec syntax' do
 
 	
 	it "playing with 'respond_to(*names)' method" do
-		
 
+		# Matches if the target object responds to all of the names provided. 
+		#Names can be Strings or Symbols
+		
+		class String
+			def hell? ; end
+		end
+
+		var_0 = 'hello'
+
+		var_0.length
+		var_0.include?('p')
+		var_0.hell?
 
 		expect(var_0).to respond_to('length')
+		expect(var_0).to respond_to(:include?)
+		expect(var_0).to respond_to(:hell?)
+	end
+
+##########################################
+
+	it "playing with 'satisfy(&block)' method" do
+		
+		# Passes if the submitted block returns true. Yields target to the block.
+		# This should be thought of as a last resort when you can't find any other way to specify the behaviour you wish to specify.
+
+
+		expect('23').to satisfy { |n| n > "22" && n < "24" }
+
+		#expect().to satisfy {     }
 
 	end
 
+	it "playing with 'start_with(*expected') method" do
+		
+		var_0 = ['all',12,19]
 
+		expect(var_0).to start_with(String)
+		expect(var_0).to start_with(['all'])
+		expect(var_0).to end_with(Fixnum)
+
+
+	end
 
 end
