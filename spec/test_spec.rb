@@ -205,9 +205,62 @@ describe 'testing the rspec syntax' do
 
 #############################
 
-	it "playing with 'output(expected = nil)' method" do
+	xit "playing with 'output(expected = nil)' method" do
 		
 		#expect(print 'Albert').to output('Albert').to_stdout
+	end
+
+
+	it "playing with 'raise_error(error = Exception, message = nil, &block)' method" do
+		
+		# With no args, matches if any error is raised. 
+		# With a named error, matches only if that specific error is raised. 
+		# With a named error and messsage specified as a String, matches only if both match.
+		# With a named error and messsage specified as a Regexp, matches only if both match. 
+		# Pass an optional block to perform extra verifications on the exception matched.
+
+		class FlowerPowerError < ArgumentError ; end
+
+		def addition(number)
+			raise 'Only number accepted' unless number === String
+			number + number
+		end
+
+		def greet(name)
+			raise 'I believe that you are forgetting something, arg!!!' if !name
+
+			raise 'Only String accepted' unless name === Fixnum
+
+			"hello #{name}"
+		end
+
+		def only_false not_true
+			raise FlowerPowerError.new("There's no space for 'true'" ) unless not_true === TrueClass
+				
+			[false,false] << not_true	
+
+		end
+
+		#var_0 = [false,false,true] 
+
+		#var_0.each { |item| raise FlowerPowerError.new("There's no space for 'true'" ) unless item === TrueClass }
+
+		expect{ addition('5') }.to  raise_error(RuntimeError)
+
+		expect{ greet()       }.to  raise_error(ArgumentError)
+		expect{ greet(Fixnum) }.to  raise_error(RuntimeError, 'Only String accepted')
+
+		expect{only_false(true)}.to raise_error(FlowerPowerError)
+	end
+
+
+	
+	it "playing with 'respond_to(*names)' method" do
+		
+
+
+		expect(var_0).to respond_to('length')
+
 	end
 
 
