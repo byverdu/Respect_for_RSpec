@@ -86,8 +86,9 @@ describe 'testing the rspec syntax' do
 
 ############################
 
-	xit "playing with 'change(receiver = nil, message = nil, &block)' method" do
-		
+	it "playing with 'change(receiver = nil, message = nil, &block)' method" do
+		arr = [1,2,3]
+		expect{arr.unshift("")}.to change(arr, :count).by(1)
 		# Applied to a proc, specifies that its execution will cause some value to change.
 		# You can either pass receiver and message, or a block(use '{}'), but not both. 
 
@@ -156,14 +157,6 @@ describe 'testing the rspec syntax' do
 
 	end
 
-#############################
-
-	xit "playing with 'have_attributes(expected)'" do
-		
-		# Passes if actual's attribute values match the expected attributes hash
-	end
-
-	
 
 	it "playing with 'include(*expected)' method" do
 		
@@ -273,7 +266,7 @@ describe 'testing the rspec syntax' do
 
 ##########################################
 
-	it "playing with 'satisfy(&block)' method" do
+	xit "playing with 'satisfy(&block)' method" do
 		
 		# Passes if the submitted block returns true. Yields target to the block.
 		# This should be thought of as a last resort when you can't find any other way to specify the behaviour you wish to specify.
@@ -289,11 +282,19 @@ describe 'testing the rspec syntax' do
 		
 		var_0 = ['all',12,19]
 
-		expect(var_0).to start_with(String)
-		expect(var_0).to start_with(['all'])
-		expect(var_0).to end_with(Fixnum)
+		expect(var_0).to     start_with(String)
+		expect(var_0).to     start_with(['all'])
+		expect(var_0).not_to end_with(String)
+	end
 
 
+	xit "playing with 'throw_symbol(expected_symbol = nil, expected_arg = nil)' method" do
+		
+		# Given no argument, matches if a proc throws any Symbol.
+
+		var_0 = Proc.new{ |n| n  }
+
+		expect(var_0).to throw_symbol(:potato)
 	end
 
 end
