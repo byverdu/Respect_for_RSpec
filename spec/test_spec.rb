@@ -297,4 +297,11 @@ describe 'testing the rspec syntax' do
 		expect(var_0).to throw_symbol(:potato)
 	end
 
+	it "does something" do
+		
+		var_0 = (3<4)	
+
+		expect(var_0).to be true
+	end
+
 end
