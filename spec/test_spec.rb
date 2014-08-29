@@ -84,7 +84,6 @@ describe 'testing the rspec syntax' do
 	end
 
 
-############################
 
 	it "playing with 'change(receiver = nil, message = nil, &block)' method" do
 		arr = [1,2,3]
