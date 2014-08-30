@@ -263,18 +263,13 @@ describe 'testing the rspec syntax' do
 		expect(var_0).to respond_to(:hell?)
 	end
 
-##########################################
 
-	xit "playing with 'satisfy(&block)' method" do
+	it "playing with 'satisfy(&block)' method" do
 		
 		# Passes if the submitted block returns true. Yields target to the block.
 		# This should be thought of as a last resort when you can't find any other way to specify the behaviour you wish to specify.
 
-
 		expect('23').to satisfy { |n| n > "22" && n < "24" }
-
-		#expect().to satisfy {     }
-
 	end
 
 	it "playing with 'start_with(*expected') method" do
@@ -286,6 +281,7 @@ describe 'testing the rspec syntax' do
 		expect(var_0).not_to end_with(String)
 	end
 
+#############################################################
 
 	xit "playing with 'throw_symbol(expected_symbol = nil, expected_arg = nil)' method" do
 		
@@ -295,12 +291,4 @@ describe 'testing the rspec syntax' do
 
 		expect(var_0).to throw_symbol(:potato)
 	end
-
-	it "does something" do
-		
-		var_0 = (3<4)	
-
-		expect(var_0).to be true
-	end
-
 end
