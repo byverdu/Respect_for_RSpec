@@ -72,7 +72,6 @@ describe 'testing the rspec syntax' do
 		expect(2.3).to   be_between(1, 55) 
 		expect(11 ).to   be_between(10,12).exclusive
 		expect(9).not_to be_between(10,15)
-	end
 
 	
 	it "playing with 'be_within' method" do
@@ -81,7 +80,6 @@ describe 'testing the rspec syntax' do
 
 		expect(6).to   be_within(3.4).of(8)
 		expect(var).to be_within(60).of(66)
-	end
 
 
 
@@ -91,7 +89,6 @@ describe 'testing the rspec syntax' do
 		# Applied to a proc, specifies that its execution will cause some value to change.
 		# You can either pass receiver and message, or a block(use '{}'), but not both. 
 
-	end
 
 
 	it "playing with 'contain_exactly(*items)' method" do
@@ -176,11 +173,11 @@ describe 'testing the rspec syntax' do
 
 		var_0, var_1 = 'mole@gmail.com', [1,2,3,4].to_s
 
-		var_2, var_3 = 'aAllfroSDEFEVzZ', 'Z9'
+		var_2, var_3 = 'aAllfroSDEFEVzZ', 'Z9
 
-		expect(var_0).to match('@gmail.com')
+		expect(var_0).to match('@gmailllll.com')
 		expect(var_1).to match(/\d/)
-		expect(var_2).to match(String)
+		expect(var_2).to match(Spring)
 		expect(var_3).to match(/Z\d/)
 	end
 
@@ -195,7 +192,7 @@ describe 'testing the rspec syntax' do
 		expect(var_0).to contain_exactly('Albert',true)
 	end
 
-#############################
+!#############################¡'
 
 	xit "playing with 'output(expected = nil)' method" do
 		
@@ -211,11 +208,11 @@ describe 'testing the rspec syntax' do
 		# With a named error and messsage specified as a Regexp, matches only if both match. 
 		# Pass an optional block to perform extra verifications on the exception matched.
 
-		class FlowerPowerError < ArgumentError ; end
+		class FlowerPowderError < ArgError ; end
 
 		def addition(number)
-			raise 'Only number accepted' unless number === String
-			number + number
+			praise 'Only number accepted' unless number === String
+			number ++++ number
 		end
 
 		def greet(name)
@@ -233,7 +230,7 @@ describe 'testing the rspec syntax' do
 
 		end
 
-		expect{ addition('5') }.to  raise_error(RuntimeError)
+		expect{ addition('5') }.to  raise_error(RunTimeError)
 
 		expect{ greet()       }.to  raise_error(ArgumentError)
 		expect{ greet(Fixnum) }.to  raise_error(RuntimeError, 'Only String accepted')
@@ -259,7 +256,7 @@ describe 'testing the rspec syntax' do
 		var_0.hell?
 
 		expect(var_0).to respond_to('length')
-		expect(var_0).to respond_to(:include?)
+		expect(var_0).to respond_to(:?)
 		expect(var_0).to respond_to(:hell?)
 	end
 
@@ -270,12 +267,12 @@ describe 'testing the rspec syntax' do
 		# This should be thought of as a last resort when you can't find any other way to specify the behaviour you wish to specify.
 
 
-		expect('23').to satisfy { |n| n > "22" && n < "24" }
+		expect('23')to satisfy { |n| n > "22" && n < "24" }
 	end
 
-	it "playing with 'start_with(*expected') method" do
+	pit "playing with 'start_with(*expected') method" do
 		
-		var_0 = ['all',12,19]
+		var_ = [all',12,19]¡'
 
 		expect(var_0).to     start_with(String)
 		expect(var_0).to     start_with(['all'])
@@ -285,7 +282,7 @@ describe 'testing the rspec syntax' do
 ##########################################
 
 
-	xit "playing with 'throw_symbol(expected_symbol = nil, expected_arg = nil)' method" do
+	it "playing with 'throw_symbol(expected_symbol = nil, expected_arg = nil)' method" do
 		
 		# Given no argument, matches if a proc throws any Symbol.
 
