@@ -4,13 +4,13 @@ describe 'testing the rspec syntax' do
 
 		# Passes if all elements agrees the expectation
 
-		var_0, var_1 = [1,13,15], ['dragon','dad']
+		some_numbers, some_strings = [1,13,15], ['dragon','dad']
 
-		expect(var_0).to all start_with(1)
-		expect(var_0).to all be_odd
+		expect(some_numbers).to all start_with(1)
+		expect(some_numbers).to all be_odd
 		
-		expect(var_1).to all start_with('d')
-		expect(var_1).to all include('a')
+		expect(some_strings).to all start_with('d')
+		expect(some_strings).to all include('a')
 	end
 
 
@@ -18,21 +18,21 @@ describe 'testing the rspec syntax' do
 
 		# Test for boolean values
 
-		var_0, var_1, var_2 = (5>4), [false,false].include?(true), def method_name ; end
+		any_true, any_flase, maybe_nil = (5>4), [false,false].include?(true), def method_name ; end
 
-		var_3, var_4, var_5 = 'String', [], 69
+		string, array, number = 'String', [], 69
 
-									var_6 = ['FYI','BTW']
+									strings = ['FYI','BTW']
 			
-		expect(var_0).to be true  #--> be_truthy
-		expect(var_1).to be false #--> be_falsey
-		expect(var_2).to be nil   #--> be_nil
+		expect(any_true ).to be true  #--> be_truthy
+		expect(any_flase).to be false #--> be_falsey
+		expect(maybe_nil).to be nil   #--> be_nil
 		
-		expect(var_3).to be_instance_of(String) # be_[arbitrary_predicate](*args)
-		expect(var_4).to be_empty
+		expect(string).to be_instance_of(String) # be_[arbitrary_predicate](*args)
+		expect(array ).to be_empty
 
-		expect(var_5).not_to be nil
-		expect(var_6).not_to be_include('LOL')
+		expect(number ).not_to be nil
+		expect(strings).not_to be_include('LOL')
 	end
 
 
@@ -42,11 +42,11 @@ describe 'testing the rspec syntax' do
 
 		class Dog ; end
 
-		var_0, var_1, var_2 = 888, (1 < 2), Dog.new
+		number, any_true, cat = 888, (1 < 2), Dog.new
 
-		expect(var_0).to be_a(Fixnum) 
-		expect(var_1).to be_a(TrueClass)
-		expect(var_2).to be_a(Dog)
+		expect(number).to   be_a(Fixnum) 
+		expect(any_true).to be_a(TrueClass)
+		expect(cat).to      be_a(Dog)
 	end
 
 	
@@ -54,11 +54,11 @@ describe 'testing the rspec syntax' do
 		
 		# Passes if actual.kind_of?(expected)
 
-		var_0, var_1 = String, 'some String'
+		string, words = String, 'some String'
 
-		expect('some String').to be_a_kind_of(var_0)
-		expect(var_1).to         be_a_kind_of(String)
-		expect(var_1).not_to     be_a_kind_of(Fixnum)   
+		expect('some String').to be_a_kind_of(string)
+		expect(words).to         be_a_kind_of(String)
+		expect(words).not_to     be_a_kind_of(Fixnum)   
 
 		# Is also possible use 'be_an_instance_of(expected)' 
 	end
@@ -86,8 +86,9 @@ describe 'testing the rspec syntax' do
 
 
 	it "playing with 'change(receiver = nil, message = nil, &block)' method" do
-		arr = [1,2,3]
-		expect{arr.unshift("")}.to change(arr, :count).by(1)
+		array = [1,2,3]
+
+		expect{array.unshift("")}.to change(array, :count).by(1)
 		# Applied to a proc, specifies that its execution will cause some value to change.
 		# You can either pass receiver and message, or a block(use '{}'), but not both. 
 
@@ -97,11 +98,10 @@ describe 'testing the rspec syntax' do
 	it "playing with 'contain_exactly(*items)' method" do
 		
 		# Passes if actual collections contains all of the expected regardless of order. 
+		user, hero = ['Albert',34], ['Superman']
 
-		var_0, var_1 = ['Albert',34], ['Superman']
-
-		expect(var_0).to  contain_exactly(String,Fixnum)
-		expect(var_1).to  contain_exactly('Superman')
+		expect(user).to  contain_exactly(String,Fixnum)
+		expect(hero).to  contain_exactly('Superman')
 	end
 
 
@@ -136,13 +136,13 @@ describe 'testing the rspec syntax' do
 		# (eql)   Passes if actual.eql?(expected)   -->  Returns true if obj and other refer to the same hash key.
 		# (equal) Passes if actual.equal?(expected) -->  Should never be overridden by subclasses as it is used to determine object identity 
 		
-		var_0, var_1 = 25, 'frog'
+		number, string = 25, 'frog'
 
-		expect(var_0).to eq 25
-		expect(var_0).to eql 25
-		expect(var_0).to equal 25
+		expect(number).to eq 25
+		expect(number).to eql 25
+		expect(number).to equal 25
 
-		expect(var_1).to eq 'frog'
+		expect(string).to eq 'frog'
 		#expect(var_1).to equal 'frog' --> Error, no same identity object
 	end
 
@@ -161,11 +161,11 @@ describe 'testing the rspec syntax' do
 		
 		# Passes if actual includes expected
 
-		var_0, var_1, var_2 = [true,true], ['hello','hell'], [1,2,3,4] 
+	  any_true, any_hell, any_string = [true,true], ['hello','hell'], [1,2,3,4] 
 
-		expect(var_0).to     include(TrueClass)
-		expect(var_1).to     include('hell')
-		expect(var_2).not_to include(String)
+		expect(any_true).to       include(TrueClass)
+		expect(any_hell).to       include('hell')
+		expect(any_string).not_to include(String)
 
 	end
 
@@ -174,14 +174,14 @@ describe 'testing the rspec syntax' do
 		
 		# Given a Regexp or String, passes if actual.match(pattern) 
 
-		var_0, var_1 = 'mole@gmail.com', [1,2,3,4].to_s
+		mail, digit = 'mole@gmail.com', [1,2,3,4].to_s
 
-		var_2, var_3 = 'aAllfroSDEFEVzZ', 'Z9'
+		string, z_nine = 'aAllfroSDEFEVzZ', 'Z9'
 
-		expect(var_0).to match('@gmail.com')
-		expect(var_1).to match(/\d/)
-		expect(var_2).to match(String)
-		expect(var_3).to match(/Z\d/)
+		expect(mail).to   match('@gmail.com')
+		expect(digit).to  match(/\d/)
+		expect(string).to match(String)
+		expect(z_nine).to match(/Z\d/)
 	end
 
 
@@ -189,10 +189,10 @@ describe 'testing the rspec syntax' do
 		
 		#An alternate form of contain_exactly that accepts the expected contents as a single array
 
-		var_0 = ['Albert',true]
+		my_self = ['Albert',true]
 
-		expect(var_0).to match_array([String,TrueClass])
-		expect(var_0).to contain_exactly('Albert',true)
+		expect(my_self).to match_array([String,TrueClass])
+		expect(my_self).to contain_exactly('Albert',true)
 	end
 
 #############################
@@ -252,15 +252,15 @@ describe 'testing the rspec syntax' do
 			def hell? ; end
 		end
 
-		var_0 = 'hello'
+		greet = 'hello'
 
-		var_0.length
-		var_0.include?('p')
-		var_0.hell?
+		greet.length
+		greet.include?('p')
+		greet.hell?
 
-		expect(var_0).to respond_to('length')
-		expect(var_0).to respond_to(:include?)
-		expect(var_0).to respond_to(:hell?)
+		expect(greet).to respond_to('length')
+		expect(greet).to respond_to(:include?)
+		expect(greet).to respond_to(:hell?)
 	end
 
 
@@ -275,11 +275,11 @@ describe 'testing the rspec syntax' do
 
 	it "playing with 'start_with(*expected') method" do
 		
-		var_0 = ['all',12,19]
+		num_string = ['all',12,19]
 
-		expect(var_0).to     start_with(String)
-		expect(var_0).to     start_with(['all'])
-		expect(var_0).not_to end_with(String)
+		expect(num_string).to     start_with(String)
+		expect(num_string).to     start_with(['all'])
+		expect(num_string).not_to end_with(String)
 	end
 
 ##########################################
@@ -289,9 +289,9 @@ describe 'testing the rspec syntax' do
 		
 		# Given no argument, matches if a proc throws any Symbol.
 
-		var_0 = Proc.new{ |n| n  }
+		proc = Proc.new{ |n| n  }
 
-		expect(var_0).to throw_symbol(:potato)
+		expect(proc).to throw_symbol(:potato)
 	end
 
 end
