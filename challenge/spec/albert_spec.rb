@@ -1,3 +1,17 @@
+=begin
+
+How it works? You need to download this file, place it in any directory that RSpec is installed. 
+
+When you run RSpec on this file will see that is plenty of errors, your task is to fix all of them.
+
+The file test_spec.rb contains the right answers. 
+
+You think it's too easy? I challenge you to make a new file with your errors and send a pull request.
+
+=end
+
+
+
 describe 'testing the rspec syntax' do
 
 	it "playing with 'all' method" do
@@ -252,14 +266,14 @@ describe 'testing the rspec syntax' do
 			def hell? ; end
 		end
 
-		greet = 'hello'
+		greet = 'hello
 
 		greet.length
 		greet.include?('p')
 		greet.hell?
 
 		expect(greet).to respond_to('length')
-		expect(greet).to respond_to(:inclde?)
+		expect(greet).to respond_to(:inclde?)'
 		expect(greet).to respond_to(:hell?)
 	end
 
@@ -277,9 +291,9 @@ describe 'testing the rspec syntax' do
 		
 		num_string = ['all',12,19]
 
-		expect(num_string).to     start_with(String)
+		expect(num_string).to     start_with(Stringed)
 		expect(num_string).to     start_with(['all'])
-		expect(num_string).not_to end_with(String)
+		expect(num_string).not_to end_with(Stringed)
 	end
 
 ##########################################
