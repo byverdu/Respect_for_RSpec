@@ -1,17 +1,22 @@
 ### RSpec have all my respects
-==
 
 RSpec needs to be our friend, so I have decided to test it. 
 
-====
+This repo contains some examples with more meaninful of different matchers used in [RSpec](http://www.rubydoc.info/gems/rspec-expectations/RSpec/Matchers).
 
-How it works? You need to download the file (albert_spec.rb) inside the challenge folder and place it in any directory where RSpec is installed. 
+Inside the spec folder is the orignal file, in the challenge folder you can find the error_spec.rb file which is plenty of errors that need to be fixed. I have used to try to understand how RSpec works.
 
-When you run RSpec on this file you will see that is plenty of errors, your task is to fix all of them.
+### How to run the tests
 
-The file test_spec.rb contains the right answers. 
+1. `clone https://github.com/byverdu/Respect_for_RSpec.git`
+2. `cd Respect_for_RSpec`
+3. `rspec -fd`
 
-You think it's too easy? I challenge you to make a new file with your errors and send a pull request.
 
-RED --> GREEN --> REFACTOR
+### How to run the challenge
+
+1. In Respect_for_RSpec folder.
+2. `cd challenge`
+3. `rspec -fd`
+4. Fix the errors till all the tests come green.
 
